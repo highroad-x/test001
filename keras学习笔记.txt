@@ -13,6 +13,16 @@ model = keras.Sequential(
 x = tf.ones((3, 3))
 y = model(x)
 
+上述例子等同于如下函数：
+# 构建3个图层
+layer1 = layers.Dense(2, activation="relu", name="layer1")
+layer2 = layers.Dense(3, activation="relu", name="layer2")
+layer3 = layers.Dense(4, name="layer3")
+
+# 用一个测试输入调用这些图层
+x = tf.ones((3, 3))
+y = layer3(layer2(layer1(x)))
+
 序列模型不适用的情形：
     *模型有多个输入或多个输出
     *任何图层有多个输入或多个输出
