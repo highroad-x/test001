@@ -1,0 +1,1 @@
+序列模型（A Sequential model）适用于多个图层的简单堆叠（a plain stack of layers），其中每个图层都只有一个输入张量和一个输出张量
