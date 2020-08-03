@@ -1,5 +1,7 @@
-序列模型（A Sequential model）适用于多个图层的简单堆叠（a plain stack of layers），其中每个图层都只有一个输入张量和一个输出张量，下面的例子可以更直观的显示序列模型的含义——一个由3个图层堆叠在一起的模型
-# 定义一个有3个图层的模型
+序列模型（A Sequential model）适用于多个图层的简单堆叠（a plain stack of layers），其中每个图层都只有一个输入张量和一个输出张量。
+
+下面的例子可以更直观的显示序列模型的含义：
+# 定义一个有3个图层的模型（由3个图层堆叠在一起的模型）
 model = keras.Sequential(
     [
         layers.Dense(2, activation="relu", name="layer1"),
@@ -10,3 +12,9 @@ model = keras.Sequential(
 # 用一个测试输入调用模型
 x = tf.ones((3, 3))
 y = model(x)
+
+序列模型不适用的情形：
+    *模型有多个输入或多个输出
+    *任何图层有多个输入或多个输出
+    *需要进行图层分享
+    *需要非线性拓扑逻辑（例如：剩余连接（a residual connection）多分枝模型（a multi-branch model））
